@@ -488,3 +488,11 @@ class RequestFactoryTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'This is a test')
+
+    def test_generic_request(self):
+        factory = RequestFactory()
+        request = factory.request()
+        response = get_view(request)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'This is a test')
